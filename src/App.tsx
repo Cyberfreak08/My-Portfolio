@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/Navbar';
@@ -18,14 +18,14 @@ function App() {
     // Simulate content loading
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <ThemeProvider>
-      <div className="min-h-screen dark:bg-space-950 bg-space-50 dark:text-white text-space-900 transition-colors duration-300">
+      <div className="min-h-screen bg-white dark:bg-space-950 text-space-900 dark:text-white transition-colors duration-300">
         <AnimatePresence>
           {loading ? (
             <Loader isLoading={loading} />

@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import { SKILLS } from '../constants';
 import { SkillCategory } from '../types';
 import { Code, Layout, Database, Server, Shield, GitBranch } from 'lucide-react';
+import { Icon } from '@iconify/react';
 
 const categoryIcons = {
   programming: <Code size={24} />,
@@ -112,7 +113,7 @@ const SkillsSection: React.FC = () => {
                 className="dark:bg-space-800/70 bg-space-200/70 backdrop-blur-sm rounded-lg p-6 flex flex-col items-center justify-center shadow-lg border dark:border-space-700 border-space-300"
               >
                 <div className="w-16 h-16 flex items-center justify-center mb-4 rounded-full dark:bg-space-700 bg-space-300">
-                  {categoryIcons[skill.category]}
+                <Icon icon={skill.icon} width={32} height={32} />
                 </div>
                 <h3 className="text-lg font-medium dark:text-white text-space-900">{skill.name}</h3>
                 <p className="text-sm dark:text-space-400 text-space-600">{categoryLabels[skill.category]}</p>

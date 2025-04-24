@@ -57,9 +57,22 @@ const AboutSection: React.FC = () => {
               <div className="relative">
                 <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 dark:border-nebula-700 border-nebula-400 shadow-lg relative z-10">
                   <img
-                    src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                    src="/images/portfolio_pic.JPG" 
                     alt="Harisundar Sivakumar"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover [object-position:center_5%]"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none'; // Hide broken image icon
+                    
+                      const parent = e.currentTarget.parentElement;
+                      if (parent) {
+                        parent.style.display = 'flex';
+                        parent.style.alignItems = 'center';
+                        parent.style.justifyContent = 'center';
+                        parent.style.fontSize = '1.25rem';
+                        parent.style.color = 'inherit';
+                        parent.innerText = 'Harisundar Sivakumar';
+                      }
+                    }}
                   />
                 </div>
                 
@@ -121,7 +134,7 @@ const AboutSection: React.FC = () => {
               
               <div className="flex gap-4">
                 <a
-                  href="https://github.com/harisundar"
+                  href="https://github.com/Cyberfreak08"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 dark:bg-space-800 bg-space-200 rounded-lg hover:dark:bg-space-700 hover:bg-space-300 transition-colors duration-300"
@@ -129,7 +142,7 @@ const AboutSection: React.FC = () => {
                   <Github size={24} className="dark:text-white text-space-900" />
                 </a>
                 <a
-                  href="https://linkedin.com/in/harisundar"
+                  href="https://www.linkedin.com/in/harisundar-sivakumar-50b12a23a/"
                   target="_blank"
                   rel="noopener noreferrer" 
                   className="p-2 dark:bg-space-800 bg-space-200 rounded-lg hover:dark:bg-space-700 hover:bg-space-300 transition-colors duration-300"
@@ -137,7 +150,7 @@ const AboutSection: React.FC = () => {
                   <Linkedin size={24} className="dark:text-white text-space-900" />
                 </a>
                 <a
-                  href="mailto:harisundar@example.com"
+                  href="mailto:harisundarofficial08@gmail.com"
                   className="p-2 dark:bg-space-800 bg-space-200 rounded-lg hover:dark:bg-space-700 hover:bg-space-300 transition-colors duration-300"
                 >
                   <Mail size={24} className="dark:text-white text-space-900" />

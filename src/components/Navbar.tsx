@@ -35,7 +35,7 @@ const Navbar: React.FC = () => {
     >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <a href="#" className="text-nebula-400 font-mono text-lg font-bold">
-          &lt;HS /&gt;
+          {/* &lt;HS /&gt; */}
         </a>
         
         {/* Desktop Menu */}
@@ -52,7 +52,7 @@ const Navbar: React.FC = () => {
           
           <div className="flex items-center space-x-4">
             <a 
-              href="https://github.com/harisundar" 
+              href="https://github.com/Cyberfreak08" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-space-200 hover:text-nebula-400 transition-colors duration-300"
@@ -60,7 +60,7 @@ const Navbar: React.FC = () => {
               <Github size={20} />
             </a>
             <a 
-              href="https://linkedin.com/in/harisundar" 
+              href="https://www.linkedin.com/in/harisundar-sivakumar-50b12a23a/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-space-200 hover:text-nebula-400 transition-colors duration-300"

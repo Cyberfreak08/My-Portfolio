@@ -4,8 +4,13 @@ import { useInView } from 'react-intersection-observer';
 import { ExternalLink, Github } from 'lucide-react';
 import { PROJECTS } from '../constants';
 import { ProjectType } from '../types';
+import ProjectModal from './ProjectModal';
 
-const ProjectCard: React.FC<{ project: ProjectType; index: number }> = ({ project, index }) => {
+const ProjectCard: React.FC<{ 
+  project: ProjectType; 
+  index: number;
+  onClick: () => void;
+}> = ({ project, index, onClick }) => {
   const [isHovered, setIsHovered] = useState(false);
   
   return (
@@ -13,9 +18,10 @@ const ProjectCard: React.FC<{ project: ProjectType; index: number }> = ({ projec
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="relative overflow-hidden rounded-xl dark:bg-space-800 bg-space-200 shadow-xl"
+      className="relative overflow-hidden rounded-xl dark:bg-space-800 bg-space-200 shadow-xl cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={onClick}
     >
       <div className="aspect-video overflow-hidden">
         <motion.img
@@ -24,6 +30,15 @@ const ProjectCard: React.FC<{ project: ProjectType; index: number }> = ({ projec
           src={project.image}
           alt={project.title}
           className="w-full h-full object-cover"
+          onError={(e) => {
+            e.currentTarget.style.display = 'none'; // Hide broken image icon
+            e.currentTarget.parentElement!.style.display = 'flex';
+            e.currentTarget.parentElement!.style.alignItems = 'center';
+            e.currentTarget.parentElement!.style.justifyContent = 'center';
+            e.currentTarget.parentElement!.style.fontSize = '1.25rem';
+            e.currentTarget.parentElement!.style.color = 'inherit';
+            e.currentTarget.parentElement!.innerText = project.title;
+          }}
         />
       </div>
       
@@ -49,6 +64,7 @@ const ProjectCard: React.FC<{ project: ProjectType; index: number }> = ({ projec
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 rounded-lg dark:bg-nebula-600 bg-nebula-500 text-white font-medium hover:dark:bg-nebula-700 hover:bg-nebula-600 transition-colors duration-300"
+              onClick={(e) => e.stopPropagation()}
             >
               <ExternalLink size={16} />
               Live Demo
@@ -61,6 +77,7 @@ const ProjectCard: React.FC<{ project: ProjectType; index: number }> = ({ projec
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 rounded-lg dark:bg-space-700 bg-space-300 dark:text-white text-space-900 font-medium hover:dark:bg-space-600 hover:bg-space-400 transition-colors duration-300"
+              onClick={(e) => e.stopPropagation()}
             >
               <Github size={16} />
               Code
@@ -77,6 +94,16 @@ const ProjectsSection: React.FC = () => {
     triggerOnce: false,
     threshold: 0.1,
   });
+
+  const [selectedProject, setSelectedProject] = useState<ProjectType | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleProjectClick = (project: ProjectType) => {
+    if (project.details) {
+      setSelectedProject(project);
+      setIsModalOpen(true);
+    }
+  };
 
   return (
     <section id="projects" className="py-20 dark:bg-space-900 bg-space-100">
@@ -97,11 +124,27 @@ const ProjectsSection: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {PROJECTS.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={index} />
+              <ProjectCard 
+                key={project.id} 
+                project={project} 
+                index={index}
+                onClick={() => handleProjectClick(project)}
+              />
             ))}
           </div>
         </motion.div>
       </div>
+
+      {selectedProject && (
+        <ProjectModal
+          project={selectedProject}
+          isOpen={isModalOpen}
+          onClose={() => {
+            setIsModalOpen(false);
+            setSelectedProject(null);
+          }}
+        />
+      )}
     </section>
   );
 };

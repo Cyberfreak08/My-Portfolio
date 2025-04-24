@@ -106,8 +106,8 @@ const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <p className="text-sm dark:text-space-400 text-space-600">Email</p>
-                    <a href="mailto:harisundar@example.com" className="dark:text-white text-space-900 hover:dark:text-nebula-400 hover:text-nebula-600 transition-colors duration-300">
-                      harisundar@example.com
+                    <a href="mailto:harisundarofficial08@gmail.com" className="dark:text-white text-space-900 hover:dark:text-nebula-400 hover:text-nebula-600 transition-colors duration-300">
+                      harisundarofficial08@gmail.com
                     </a>
                   </div>
                 </div>
@@ -118,7 +118,7 @@ const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <p className="text-sm dark:text-space-400 text-space-600">GitHub</p>
-                    <a href="https://github.com/harisundar" target="_blank" rel="noopener noreferrer" className="dark:text-white text-space-900 hover:dark:text-nebula-400 hover:text-nebula-600 transition-colors duration-300">
+                    <a href="https://github.com/Cyberfreak08" target="_blank" rel="noopener noreferrer" className="dark:text-white text-space-900 hover:dark:text-nebula-400 hover:text-nebula-600 transition-colors duration-300">
                       github.com/harisundar
                     </a>
                   </div>
@@ -130,7 +130,7 @@ const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <p className="text-sm dark:text-space-400 text-space-600">LinkedIn</p>
-                    <a href="https://linkedin.com/in/harisundar" target="_blank" rel="noopener noreferrer" className="dark:text-white text-space-900 hover:dark:text-nebula-400 hover:text-nebula-600 transition-colors duration-300">
+                    <a href="https://linkedin.com/in/harisundar-sivakumar-50b12a23a" target="_blank" rel="noopener noreferrer" className="dark:text-white text-space-900 hover:dark:text-nebula-400 hover:text-nebula-600 transition-colors duration-300">
                       linkedin.com/in/harisundar
                     </a>
                   </div>

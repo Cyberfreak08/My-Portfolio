@@ -6,6 +6,17 @@ export interface ProjectType {
   demoLink?: string;
   githubLink?: string;
   technologies: string[];
+  details?: {
+    client?: string;
+    applicationName?: string;
+    projectDescription?: string;
+    designation?: string;
+    role?: string[];
+    duration?: string;
+    environment?: string;
+    teamSize?: string;
+    workCompany?: string;
+  };
 }
 
 export interface ExperienceType {
@@ -24,12 +35,12 @@ export interface SkillType {
   icon: string;
 }
 
-export type SkillCategory = 
-  | "programming" 
-  | "frontend" 
-  | "backend" 
-  | "database" 
-  | "auth" 
+export type SkillCategory =
+  | "programming"
+  | "frontend"
+  | "backend"
+  | "database"
+  | "auth"
   | "devops";
 
 export interface NavLinkType {
